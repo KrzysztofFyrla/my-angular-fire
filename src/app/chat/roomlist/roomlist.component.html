@@ -1,0 +1,37 @@
+<div class="container">
+  <button class="btn-danger mybtn" mat-fab (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+  <button class="mybtn" color="primary" mat-fab (click)="back()">
+    <mat-icon>reply</mat-icon>
+  </button>
+
+  <h3>Your nick: {{nickname}}</h3>
+  <h2>Room List</h2>
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <button mat-flat-button color="primary" [routerLink]="['/addroom']">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="page-container row">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let room of rooms">
+        <div class="card pointer">
+          <div class="card-content" style="color: black;" (click)="enterChatRoom(room.roomname)">
+            <h3>Name</h3>
+            <div class="mytitle">{{ room.roomname }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
